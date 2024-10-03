@@ -4,6 +4,8 @@ var gulp = require('gulp');
 var sass = require('gulp-sass')(require('sass'));
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
+var babel = require('gulp-babel');
+
 
 // compile scss to css
 gulp.task('sass', function () {
@@ -15,7 +17,7 @@ gulp.task('sass', function () {
 
 // watch changes in scss files and run sass task
 gulp.task('sass:watch', function () {
-    gulp.watch('./sass/**/*.scss', ['sass']);
+    gulp.watch('./sass/**/*.scss', gulp.series('sass'));
 });
 
 // minify js
@@ -26,5 +28,10 @@ gulp.task('minify-js', function () {
         .pipe(gulp.dest('./js'));
 });
 
+// watch changes in js files
+gulp.task('js:watch', function () {
+    gulp.watch(['./js/scripts.js', './js/countdown.js'], gulp.series('minify-js'));
+});
+
 // default task
-gulp.task('default', gulp.series('sass', 'minify-js'));
+gulp.task('default', gulp.series('sass', 'minify-js', gulp.parallel('sass:watch', 'js:watch')));

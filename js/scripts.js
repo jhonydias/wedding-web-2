@@ -1,5 +1,17 @@
 $(document).ready(function () {
 
+    /***************** Contador de Dias ******************/
+    function atualizarContador() {
+        var dataCasamento = new Date('2024-12-07');
+        var hoje = new Date();
+        var tempoRestante = dataCasamento - hoje;
+        var diasRestantes = Math.ceil(tempoRestante / (1000 * 60 * 60 * 24));
+
+        document.getElementById('contador').textContent = diasRestantes + ' dias para o "sim"';
+    }
+
+    atualizarContador();
+
     /***************** Waypoints ******************/
 
     $('.wp1').waypoint(function () {
@@ -93,13 +105,13 @@ $(document).ready(function () {
                 $('section.navigation').addClass('fixed');
                 $('header').css({
                     "border-bottom": "none",
-                    "padding": "35px 0"
+                    "padding": "20px 0"
                 });
                 $('header .member-actions').css({
-                    "top": "26px",
+                    "top": "11px",
                 });
                 $('header .navicon').css({
-                    "top": "34px",
+                    "top": "15px",
                 });
             } else {
                 $('section.navigation').removeClass('fixed');

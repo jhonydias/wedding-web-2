@@ -270,6 +270,8 @@ Hero
   h1 {
     color: $txt-light;
     margin-bottom: 40px;
+    font-family: "Quattrocento", serif;
+    font-style: normal;
   }
   p.intro {
     color: $txt-light;
@@ -293,7 +295,7 @@ Hero
 }
 .fixed {
   position: fixed;
-  background-color: rgba(55, 36, 40, .88);
+  background-color: rgb(151, 131, 31, 0.88);
   z-index: 999;
   width: 100%;
 }
@@ -898,4 +900,84 @@ body.modal-open {
 }
 .modal-body {
   padding:25px;
+}
+
+.wedding-section {
+  padding: 50px 0;
+}
+
+.container-wedding {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.row-wedding {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+}
+
+.col-image{
+  flex: 1.2;
+}
+
+.col-text {
+  flex: 0.8;
+}
+
+.responsive-img {
+  max-width: 90%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.col-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.date-details h2, .date-details h3, .date-details h4 {
+  margin: 0;
+  color: $accent-color;
+  font-family: "Quattrocento", serif;
+}
+
+.separador-vertical .line {
+  border-left: 2px solid #D0CBB8; /* cor similar ao exemplo */
+  height: 100px; /* ajuste conforme necessário */
+  margin: auto;
+}
+
+@media (max-width: 768px) {
+  .container-wedding img {
+    max-width: 100%;
+  }
+  .row-wedding {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .separador-vertical .line {
+    display: none;
+  }
+
+  .col-text {
+    margin-top: 20px;
+  }
+
+  .divider {
+    margin: 5px 0;
+  }
+  .col-md-5, .col-md-1 {
+    flex-basis: 100%;
+    text-align: center;
+  }
 }
