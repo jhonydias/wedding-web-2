@@ -11,6 +11,8 @@ $(document).ready(function () {
     }
 
     atualizarContador();
+    document.addEventListener("DOMContentLoaded", atualizarContador);
+
 
     /***************** Waypoints ******************/
 

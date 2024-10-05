@@ -981,3 +981,99 @@ body.modal-open {
     text-align: center;
   }
 }
+
+
+.section-links {
+  position: relative;
+  margin-top: 30px;
+}
+
+.container-links {
+  position: relative;
+  text-align: center;
+}
+
+.banner-img {
+  width: 100%;
+  height: auto;
+}
+
+.links-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px; /* Espaçamento entre os textos */
+  color: #fff;
+  font-family: 'Quattrocento', serif;
+}
+
+.link-item {
+  font-size: 5rem;
+  color: #fff;
+  text-decoration: none;
+}
+
+.divider-vertical {
+  border-left: 2px solid #fff;
+  height: 40px;
+}
+
+@media (max-width: 768px) {
+  .links-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .divider-vertical {
+    display: none;
+  }
+
+  .link-item {
+    font-size: 2rem;
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .col-text h2, .col-text h3 {
+    font-size: 1.2em; /* Ajuste o tamanho conforme necessário */
+  }
+
+  .wedding-section h2, .wedding-section h3 {
+    font-size: 2em;
+  }
+
+  .wedding-section .col-text {
+    margin-top: 10px; /* Ajuste de margens */
+  }
+
+  .links-section a {
+    font-size: 1.2em; /* Tamanho menor para os links */
+  }
+}
+
+
+@media (max-width: 768px) {
+  //.hero-content h1 {
+  //  font-size: 24px; /* ajuste o tamanho conforme necessário */
+  //  line-height: 1.2; /* melhora o espaçamento entre as linhas */
+  //}
+
+  #contador {
+    font-size: 2em;
+    margin-top: 10px; /* ajuste o espaçamento superior conforme necessário */
+  }
+  .noivos {
+    font-size: 2.2em;
+    margin-top: 10px; /* ajuste o espaçamento superior conforme você define */
+  }
+
+  .rsvp-btn {
+    font-size: 16px;
+  }
+}
