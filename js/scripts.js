@@ -1,17 +1,27 @@
 $(document).ready(function () {
 
     /***************** Contador de Dias ******************/
-    function atualizarContador() {
-        var dataCasamento = new Date('2024-12-07');
-        var hoje = new Date();
-        var tempoRestante = dataCasamento - hoje;
-        var diasRestantes = Math.ceil(tempoRestante / (1000 * 60 * 60 * 24));
+    function atualizarContagemRegressiva() {
+        var dataCasamento = new Date('2024-12-07T10:00:00');
+        var agora = new Date();
+        var tempoRestante = dataCasamento - agora;
 
-        document.getElementById('contador').textContent = diasRestantes + ' dias para o "sim"';
+        var dias = Math.floor(tempoRestante / (1000 * 60 * 60 * 24));
+        var horas = Math.floor((tempoRestante % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutos = Math.floor((tempoRestante % (1000 * 60 * 60)) / (1000 * 60));
+        var segundos = Math.floor((tempoRestante % (1000 * 60)) / 1000);
+
+        // document.getElementById('contador').textContent = dias + '' + ' dias ' + horas + ' horas ' + minutos + ' minutos ' + segundos + ' segundos para o Sim';
+        document.getElementById('dias').textContent = dias.toString();
+        document.getElementById('horas').textContent = horas.toString();
+        document.getElementById('minutos').textContent = minutos.toString();
+        document.getElementById('segundos').textContent = segundos.toString();
+
+        setTimeout(atualizarContagemRegressiva, 1000);
     }
 
-    atualizarContador();
-    document.addEventListener("DOMContentLoaded", atualizarContador);
+    // Inicia a contagem assim que a página carregar
+    window.onload = atualizarContagemRegressiva;
 
 
     /***************** Waypoints ******************/

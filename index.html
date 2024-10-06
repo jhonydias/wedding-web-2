@@ -97,19 +97,37 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="hero-content text-center">
-                    <h1 id="noivos">JHONY & JOENE</h1>
+                    <h1 id="noivos">Jhony & Joene</h1>
+                    <div class="contador-container">
+                        <div class="contador-item">
+                            <span class="contador-numero" id="dias"></span>
+                            <span class="contador-label">dias</span>
+                        </div>
+                        <div class="contador-item">
+                            <span class="contador-numero" id="horas"></span>
+                            <span class="contador-label">hrs</span>
+                        </div>
+                        <div class="contador-item">
+                            <span class="contador-numero" id="minutos"></span>
+                            <span class="contador-label">min</span>
+                        </div>
+                        <div class="contador-item">
+                            <span class="contador-numero" id="segundos"></span>
+                            <span class="contador-label">seg</span>
+                        </div>
+                    </div>
                     <h1 id="contador"></h1>
 <!--                    <img src="img/logo-lg.png">-->
 <!--                    <a href="#" class="btn btn-fill btn-large btn-margin-right">Scroll Down</a>-->
                 </div>
             </div>
         </div>
-<!--        <div class="row">-->
-<!--            <div class="col-sm-4 "></div>-->
-<!--            <div class="col-sm-4 text-center"><a href="#rsvp"-->
-<!--                                                           class="btn btn-accent btn-large rsvp-btn">Confirme sua presença</a></div>-->
-<!--            <div class="col-sm-4"></div>-->
-<!--        </div>-->
+        <div class="row">
+            <div class="col-sm-4 "></div>
+            <div class="col-sm-4 text-center"><a href="#rsvp"
+                                                           class="btn btn-accent btn-large rsvp-btn">Confirme sua presença</a></div>
+            <div class="col-sm-4"></div>
+        </div>
     </div>
 <!--    <div class="down-arrow floating-arrow"><a href="#invitation"><i class="fa fa-angle-down"></i></a></div>-->
 </section>
@@ -471,78 +489,59 @@
 <!--    </div>-->
 <!--</section>-->
 
-<!--<section class="rsvp text-center" id="rsvp">-->
+<section class="rsvp text-center" id="rsvp">
 
-<!--    <div id="rsvp-modal" class="modal fade" tabindex="-1" role="dialog">-->
-<!--        <div class="modal-dialog" role="document">-->
-<!--            <div class="modal-content">-->
-<!--                <div class="modal-body">-->
-<!--                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span>-->
-<!--                    </button>-->
-<!--                    <div class="section-padding">-->
-<!--                        <h3>Thank you!</h3>-->
-<!--                        <p>We are glad to see you join us on our big day.</p>-->
-<!--                        <div id="add-to-cal"></div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>&lt;!&ndash; /.modal-content &ndash;&gt;-->
-<!--        </div>&lt;!&ndash; /.modal-dialog &ndash;&gt;-->
-<!--    </div>&lt;!&ndash; /.modal &ndash;&gt;-->
+    <div id="rsvp-modal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span>
+                    </button>
+                    <div class="section-padding">
+                        <h3>Obrigado!</h3>
+                        <p>Estamos felizes em vê-lo se juntar a nós no nosso grande dia.</p>
+                        <div id="add-to-cal"></div>
+                    </div>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 
-<!--    <div class="container">-->
-<!--        <div class="row">-->
-<!--            <div class="col-md-6 col-md-offset-3">-->
-<!--                <h3>What are you waiting for?</h3>-->
-<!--                <p>We would greatly appreciate if you could RSVP before 1st of November '17</p>-->
-<!--                <form id="rsvp-form" class="rsvp-form"-->
-<!--                      action=""-->
-<!--                      method="POST">-->
-<!--                    <div class="row">-->
-<!--                        <div class="col-md-6 col-sm-6">-->
-<!--                            <div class="form-input-group">-->
-<!--                                <i class="fa fa-envelope"></i><input type="email" name="email" class=""-->
-<!--                                                                     placeholder="Your email"-->
-<!--                                                                     required>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="col-md-6 col-sm-6">-->
-<!--                            <div class="form-input-group">-->
-<!--                                <i class="fa fa-user"></i><input name="name" class=""-->
-<!--                                                                 placeholder="Your name"-->
-<!--                                                                 required>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="row">-->
-<!--                        <div class="col-md-6 col-sm-6">-->
-<!--                            <div class="form-input-group">-->
-<!--                                <i class="fa fa-users"></i><input type="number" name="extras" class="" min="0"-->
-<!--                                                                  max="4"-->
-<!--                                                                  placeholder="Husband/Wife or kids"-->
-<!--                                                                  required>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="col-md-6 col-sm-6">-->
-<!--                            <div class="form-input-group">-->
-<!--                                <i class="fa fa-key"></i><input type="number" name="invite_code" id="invite_code"-->
-<!--                                                                class="" min="0"-->
-<!--                                                                placeholder="Invite code"-->
-<!--                                                                required>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="row">-->
-<!--                        <div class="col-md-12" id="alert-wrapper"></div>-->
-<!--                    </div>-->
-<!--                    <button class="btn-fill rsvp-btn">-->
-<!--                        Yes,-->
-<!--                        that's me!-->
-<!--                    </button>-->
-<!--                </form>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</section>-->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <h3>Confirme aqui</h3>
+                <p>Agradeceríamos muito se você pudesse confirmar sua presença antes de 1º de novembro de 2024</p>
+                <form id="rsvp-form" class="rsvp-form"
+                      action=""
+                      method="POST">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                            <div class="form-input-group">
+                                <i class="fa fa-envelope"></i><input type="email" name="email" class=""
+                                                                     placeholder="Email"
+                                                                     required>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="form-input-group">
+                                <i class="fa fa-user"></i><input name="name" class=""
+                                                                 placeholder="Nome completo"
+                                                                 required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12" id="alert-wrapper"></div>
+                    </div>
+                    <button class="btn-fill rsvp-btn">
+                        Confirmo
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
 
 <footer>
     <div class="container">

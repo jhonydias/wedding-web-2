@@ -810,7 +810,7 @@ RSVP form
       position: relative;
 
       i {
-        color: $accent-color;
+        color: $txt-light;
         font-size: 14px;
       }
       i:after {
@@ -1077,3 +1077,35 @@ body.modal-open {
     font-size: 16px;
   }
 }
+
+
+
+
+.contador-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.contador-item {
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #D0CBB8;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.contador-numero {
+  font-size: 2em;
+  color: $txt-light;
+  font-family: "Quattrocento", serif;
+}
+
+.contador-label {
+  font-size: 1.2em;
+  color: $txt-light;
+  display: block;
+  margin-top: 5px;
+}
+
