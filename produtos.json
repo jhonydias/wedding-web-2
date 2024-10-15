@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "nome": "Cota 1 Hospedagem",
+    "preco": "R$ 1.500,00",
+    "imagem": "img/hospedagem.png"
+  },
+  {
+    "id": 2,
+    "nome": "Cota 2 Passagem",
+    "preco": "R$ 500,00",
+    "imagem": "img/passagem.png"
+  },
+  {
+    "id": 3,
+    "nome": "Máquina de Lavar Roupas",
+    "preco": "R$ 3.500,00",
+    "imagem": "img/lavadora.png"
+  }
+]

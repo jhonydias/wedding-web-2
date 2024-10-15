@@ -1,5 +1,28 @@
 $(document).ready(function () {
 
+    // Function to open modal
+    function openModal(giftType) {
+        document.getElementById('modal').style.display = 'block';
+
+        if (giftType === 'hospedagem') {
+            document.getElementById('modal-image').src = 'img/hospedagem.jpg';
+            document.getElementById('modal-title').innerText = 'Cota 1 Hospedagem';
+            document.getElementById('modal-price').innerText = 'R$ 1.500,00';
+            document.getElementById('modal-present-value').innerText = '1.500,00';
+        } else if (giftType === 'passagem') {
+            document.getElementById('modal-image').src = 'img/passagem.jpg';
+            document.getElementById('modal-title').innerText = 'Cota 2 Passagem';
+            document.getElementById('modal-price').innerText = 'R$ 500,00';
+            document.getElementById('modal-present-value').innerText = '500,00';
+        }
+    }
+
+    // Function to close modal
+    function closeModal() {
+        document.getElementById('modal').style.display = 'none';
+    }
+
+
     /***************** Contador de Dias ******************/
     function atualizarContagemRegressiva() {
         var dataCasamento = new Date('2024-12-07T10:00:00');
@@ -208,23 +231,23 @@ $(document).ready(function () {
         },
         data: {
             // Event title
-            title: "Ram and Antara's Wedding",
+            title: "Casamento Jhony e Joene",
 
             // Event start date
-            start: new Date('Nov 27, 2017 10:00'),
+            start: new Date('2024-12-07T10:00:00'),
 
             // Event duration (IN MINUTES)
             // duration: 120,
 
             // You can also choose to set an end time
             // If an end time is set, this will take precedence over duration
-            end: new Date('Nov 29, 2017 00:00'),
+            end: new Date('2024-12-07T10:00:00'),
 
             // Event Address
             address: 'ITC Fortune Park Hotel, Kolkata',
 
             // Event Description
-            description: "We can't wait to see you on our big day. For any queries or issues, please contact Mr. Amit Roy at +91 9876543210."
+            description: "Esperamos por você, qualquer dúvida, entre em contato com a gente!"
         }
     });
 

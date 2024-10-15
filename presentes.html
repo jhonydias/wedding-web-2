@@ -1,0 +1,269 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="pt-br"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang="pt-br"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang="pt-br"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="pt-br"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>Casamento Jhony e Joene</title>
+    <meta name="description" content="Gostaríamos de convidá-lo para o nosso grande dia.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <meta property="og:title" content="Casamento Jhony e Joene">
+    <meta property="og:description" content="Gostaríamos de convidá-lo para o nosso grande dia.">
+    <!--    <meta property="og:image" content="https://wedding.ramswaroop.me/img/hero-min.jpg">-->
+    <meta property="og:type" content="website">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="manifest.json">
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+    <script>
+        // // load css files from CDN if local node_modules fail
+        // function loadCssFromCDN(css) {
+        //     // create new link tag
+        //     const link = document.createElement('link');
+        //     if (css === 'animate.css') {
+        //         link.href = 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css';
+        //     } else if (css === 'font-awesome.css') {
+        //         link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css';
+        //     }
+        //     link.rel = 'stylesheet';
+        //
+        //     // add link tag to head section
+        //     document.getElementsByTagName('head')[0].appendChild(link);
+        // }
+        //
+        // // load js files from CDN if local node_modules fail
+        // function loadJsFromCDN(js) {
+        //     if (js === 'waypoints.js') {
+        //         document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"><\/script>');
+        //     } else if (js === 'jquery.js') {
+        //         document.write('<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"><\/script>');
+        //     }
+        // }
+
+        // Function to open modal
+        function openModal(giftType) {
+            document.getElementById('modal').style.display = 'block';
+
+            let paymentLink = "";
+
+            if (giftType === 'hospedagem') {
+                document.getElementById('modal-image').src = 'img/hospedagem.jpg';
+                document.getElementById('modal-title').innerText = 'Cota 1 Hospedagem';
+                document.getElementById('modal-price').innerText = 'R$ 1.500,00';
+                document.getElementById('modal-present-value').innerText = '1.500,00';
+                paymentLink = "https://mpago.la/2FWZR8w";  // Link único
+            } else if (giftType === 'passagem') {
+                document.getElementById('modal-image').src = 'img/passagem.jpg';
+                document.getElementById('modal-title').innerText = 'Cota 2 Passagem';
+                document.getElementById('modal-price').innerText = 'R$ 500,00';
+                document.getElementById('modal-present-value').innerText = '500,00';
+                paymentLink = "https://mpago.la/3XYZ456";  // Outro link único
+            }
+
+            // Atualiza o botão de pagamento com o link específico
+            document.getElementById('pay-button').setAttribute('onclick', `window.open('${paymentLink}', '_blank')`);
+        }
+
+        // Function to close modal
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('modal')) {
+                document.getElementById('modal').style.display = 'none';
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="css/normalize.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/jquery.fancybox.css">
+    <link rel="stylesheet" href="css/flexslider.css">
+    <link rel="stylesheet" href="css/styles-presentes.min.css">
+    <link rel="stylesheet" href="css/queries.css">
+    <link rel="stylesheet" href="node_modules/animate.css/animate.min.css" onerror="loadCssFromCDN('animate.css')">
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css" onerror="loadCssFromCDN('font-awesome.css')">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
+    <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+</head>
+<body id="top">
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+<section class="hero-presentes">
+    <section class="navigation">
+        <header>
+            <div class="header-content">
+                <div class="logo"><a href="index.html"><img src="img/logo.png" alt="Logo"></a></div>
+                <div class="header-nav">
+                    <nav>
+                        <ul class="primary-nav">
+                        </ul>
+                        <ul class="member-actions">
+                            <li><a href="#map" class="login">Local</a></li>
+                            <li><a href="#rsvp" class="btn-white btn-small">Confirmação</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="navicon">
+                    <a class="nav-toggle" href="#"><span></span></a>
+                </div>
+            </div>
+        </header>
+    </section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="hero-content text-center">
+                    <h1 id="noivos">Jhony & Joene</h1>
+                    <div class="contador-container">
+                        <div class="contador-item">
+                            <span class="contador-numero" id="dias"></span>
+                            <span class="contador-label">dias</span>
+                        </div>
+                        <div class="contador-item">
+                            <span class="contador-numero" id="horas"></span>
+                            <span class="contador-label">hrs</span>
+                        </div>
+                        <div class="contador-item">
+                            <span class="contador-numero" id="minutos"></span>
+                            <span class="contador-label">min</span>
+                        </div>
+                        <div class="contador-item">
+                            <span class="contador-numero" id="segundos"></span>
+                            <span class="contador-label">seg</span>
+                        </div>
+                    </div>
+                    <h1 id="contador"></h1>
+                    <!--                    <img src="img/logo-lg.png">-->
+                    <!--                    <a href="#" class="btn btn-fill btn-large btn-margin-right">Scroll Down</a>-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="gift-container">
+        <div class="gift-item">
+            <img src="img/hospedagem.png" alt="Cota Hospedagem">
+            <h3>Cota 1 Hospedagem</h3>
+            <p>R$ 1.500,00</p>
+            <button class="btn" onclick="openModal('hospedagem')">Ver detalhes</button>
+        </div>
+        <div class="gift-item">
+            <img src="img/passagem.png" alt="Cota Passagem">
+            <h3>Cota 2 Passagem</h3>
+            <p>R$ 500,00</p>
+            <button class="btn" onclick="openModal('passagem')">Ver detalhes</button>
+        </div>
+        <div class="gift-item">
+            <img src="img/hospedagem.png" alt="Cota Hospedagem">
+            <h3>Cota 1 Hospedagem</h3>
+            <p>R$ 1.500,00</p>
+            <button class="btn" onclick="openModal('hospedagem')">Ver detalhes</button>
+        </div>
+        <div class="gift-item">
+            <img src="img/passagem.png" alt="Cota Passagem">
+            <h3>Cota 2 Passagem</h3>
+            <p>R$ 500,00</p>
+            <button class="btn" onclick="openModal('passagem')">Ver detalhes</button>
+        </div>
+        <div class="gift-item">
+            <img src="img/hospedagem.png" alt="Cota Hospedagem">
+            <h3>Cota 1 Hospedagem</h3>
+            <p>R$ 1.500,00</p>
+            <button class="btn" onclick="openModal('hospedagem')">Ver detalhes</button>
+        </div>
+        <div class="gift-item">
+            <img src="img/passagem.png" alt="Cota Passagem">
+            <h3>Cota 2 Passagem</h3>
+            <p>R$ 500,00</p>
+            <button class="btn" onclick="openModal('passagem')">Ver detalhes</button>
+        </div>
+        <div class="gift-item">
+            <img src="img/hospedagem.png" alt="Cota Hospedagem">
+            <h3>Cota 1 Hospedagem</h3>
+            <p>R$ 1.500,00</p>
+            <button class="btn" onclick="openModal('hospedagem')">Ver detalhes</button>
+        </div>
+        <div class="gift-item">
+            <img src="img/passagem.png" alt="Cota Passagem">
+            <h3>Cota 2 Passagem</h3>
+            <p>R$ 500,00</p>
+            <button class="btn" onclick="openModal('passagem')">Ver detalhes</button>
+        </div>
+        <div class="gift-item">
+            <img src="img/hospedagem.png" alt="Cota Hospedagem">
+            <h3>Cota 1 Hospedagem</h3>
+            <p>R$ 1.500,00</p>
+            <button class="btn" onclick="openModal('hospedagem')">Ver detalhes</button>
+        </div>
+        <div class="gift-item">
+            <img src="img/passagem.png" alt="Cota Passagem">
+            <h3>Cota 2 Passagem</h3>
+            <p>R$ 500,00</p>
+            <button class="btn" onclick="openModal('passagem')">Ver detalhes</button>
+        </div>
+        <div class="gift-item">
+            <img src="img/hospedagem.png" alt="Cota Hospedagem">
+            <h3>Cota 1 Hospedagem</h3>
+            <p>R$ 1.500,00</p>
+            <button class="btn" onclick="openModal('hospedagem')">Ver detalhes</button>
+        </div>
+        <div class="gift-item">
+            <img src="img/passagem.png" alt="Cota Passagem">
+            <h3>Cota 2 Passagem</h3>
+            <p>R$ 500,00</p>
+            <button class="btn" onclick="openModal('passagem')">Ver detalhes</button>
+        </div>
+        <!-- Repita o mesmo para outros presentes -->
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img id="modal-image" src="" alt="">
+            <h3 id="modal-title"></h3>
+            <p id="modal-price"></p>
+            <p>Seu presente: R$ <span id="modal-present-value"></span></p>
+            <button id="pay-button" class="btn-fill">Faça o pagamento</button>
+        </div>
+    </div>
+
+    <!--    <div class="down-arrow floating-arrow"><a href="#invitation"><i class="fa fa-angle-down"></i></a></div>-->
+</section>
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center content">
+                <span class="to-top-wrapper"><a href="#top" class="to-top"><i class="fa fa-angle-up"></i></a></span>
+                <p>Desenvolvido pelo Jhony com muito <span class="fa fa-heart pulse2"></span> pela Joene</p>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="js/vendor/jquery-1.11.2.min.js" onerror="loadJsFromCDN('jquery.js')"></script>
+<script src="node_modules/waypoints/lib/jquery.waypoints.min.js" onerror="loadJsFromCDN('waypoints.js')"></script>
+<script src="js/jquery.fancybox.pack.js"></script>
+<script src="js/vendor/bootstrap.min.js"></script>
+<script src="js/jquery.flexslider-min.js"></script>
+<script src="js/jquery.mb.YTPlayer.min.js"></script>
+<script src="js/vendor/ouical.js"></script>
+<script src="js/scripts.min.js"></script>
+</body>
+</html>
