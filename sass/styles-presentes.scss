@@ -1169,6 +1169,25 @@ body.modal-open {
   margin-top: 20px;
 }
 
+
+@media (max-width: 768px) {
+  .modal-content {
+    width: 80%; /* Aumenta a largura do modal para telas pequenas */
+    max-width: 400px; /* Define uma largura máxima para o modal */
+    padding: 20px;
+  }
+
+  .btn-fill {
+    padding: 12px 24px;
+    font-size: 16px; /* Aumenta o tamanho da fonte para o botão */
+  }
+
+  .modal img {
+    width: 100%;
+    height: auto; /* Ajusta a imagem dentro do modal para telas menores */
+  }
+}
+
 .hero-presentes {
   //min-height: 750px;
   background: url('../img/eng_pics/IMG_3483-lg.jpg') no-repeat center center fixed;
@@ -1204,4 +1223,6 @@ body.modal-open {
     margin-bottom: 12%;
   }
 }
+
+
 

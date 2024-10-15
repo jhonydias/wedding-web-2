@@ -1,28 +1,5 @@
 $(document).ready(function () {
 
-    // Function to open modal
-    function openModal(giftType) {
-        document.getElementById('modal').style.display = 'block';
-
-        if (giftType === 'hospedagem') {
-            document.getElementById('modal-image').src = 'img/hospedagem.jpg';
-            document.getElementById('modal-title').innerText = 'Cota 1 Hospedagem';
-            document.getElementById('modal-price').innerText = 'R$ 1.500,00';
-            document.getElementById('modal-present-value').innerText = '1.500,00';
-        } else if (giftType === 'passagem') {
-            document.getElementById('modal-image').src = 'img/passagem.jpg';
-            document.getElementById('modal-title').innerText = 'Cota 2 Passagem';
-            document.getElementById('modal-price').innerText = 'R$ 500,00';
-            document.getElementById('modal-present-value').innerText = '500,00';
-        }
-    }
-
-    // Function to close modal
-    function closeModal() {
-        document.getElementById('modal').style.display = 'none';
-    }
-
-
     /***************** Contador de Dias ******************/
     function atualizarContagemRegressiva() {
         var dataCasamento = new Date('2024-12-07T10:00:00');
