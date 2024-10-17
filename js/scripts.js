@@ -1,5 +1,11 @@
 $(document).ready(function () {
 
+    function init() {
+        fetchProducts();
+        atualizarContagemRegressiva();
+    }
+    window.onload = init;
+
     /***************** Contador de Dias ******************/
     function atualizarContagemRegressiva() {
         var dataCasamento = new Date('2024-12-07T10:00:00');
@@ -20,9 +26,34 @@ $(document).ready(function () {
         setTimeout(atualizarContagemRegressiva, 1000);
     }
 
-    // Inicia a contagem assim que a página carregar
-    window.onload = atualizarContagemRegressiva;
+    var apiURL = 'https://script.google.com/macros/s/AKfycbywl_f3owoVg1px3PKgr9HpKyng-nz1uC7gLtVNdInSUQLupPeFDYYD-71orylpxnln/exec';
 
+    function fetchProducts() {
+        fetch(apiURL)
+            .then(function(response){ return response.json(); })
+            .then(function (data) {
+                var container = document.querySelector('.gift-container');
+                container.innerHTML = '';  // Limpar o conteúdo antes de adicionar novos produtos
+                data.forEach(function (produto) {
+                    // Definir o estado do produto com base no status
+                    var produtoStatusClass = produto.status === 'OFF' ? 'product-unavailable' : '';
+                    var buttonContent = produto.status === 'OFF' ? '<span class="unavailable">COMPRADO</span>' : '<a href="' + produto.link + '" target="_blank" class="btn">Faça o pagamento</a>';
+
+                    var produtoHTML =
+                        '<div class="gift-item ' + produtoStatusClass + '">' +
+                        '<img src="' + produto.img + '" alt="' + produto.nome + '">' +
+                        '<h3>' + produto.nome + '</h3>' +
+                        '<p class="price">R$ ' + produto.preco + '</p>' +
+                        buttonContent +
+                        '</div>';
+
+                    container.innerHTML += produtoHTML;
+                });
+            })
+            .catch(function(error) {
+                console.error('Erro ao carregar os produtos:', error);
+            });
+    }
 
     /***************** Waypoints ******************/
 

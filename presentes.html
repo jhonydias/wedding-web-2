@@ -23,67 +23,6 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="manifest" href="manifest.json">
     <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
-    <script>
-        // // load css files from CDN if local node_modules fail
-        // function loadCssFromCDN(css) {
-        //     // create new link tag
-        //     const link = document.createElement('link');
-        //     if (css === 'animate.css') {
-        //         link.href = 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css';
-        //     } else if (css === 'font-awesome.css') {
-        //         link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css';
-        //     }
-        //     link.rel = 'stylesheet';
-        //
-        //     // add link tag to head section
-        //     document.getElementsByTagName('head')[0].appendChild(link);
-        // }
-        //
-        // // load js files from CDN if local node_modules fail
-        // function loadJsFromCDN(js) {
-        //     if (js === 'waypoints.js') {
-        //         document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"><\/script>');
-        //     } else if (js === 'jquery.js') {
-        //         document.write('<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"><\/script>');
-        //     }
-        // }
-
-        // Function to open modal
-        function openModal(giftType) {
-            document.getElementById('modal').style.display = 'block';
-
-            let paymentLink = "";
-
-            if (giftType === 'hospedagem') {
-                document.getElementById('modal-image').src = 'img/hospedagem.jpg';
-                document.getElementById('modal-title').innerText = 'Cota 1 Hospedagem';
-                document.getElementById('modal-price').innerText = 'R$ 1.500,00';
-                document.getElementById('modal-present-value').innerText = '1.500,00';
-                paymentLink = "https://mpago.la/2FWZR8w";  // Link único
-            } else if (giftType === 'passagem') {
-                document.getElementById('modal-image').src = 'img/passagem.jpg';
-                document.getElementById('modal-title').innerText = 'Cota 2 Passagem';
-                document.getElementById('modal-price').innerText = 'R$ 500,00';
-                document.getElementById('modal-present-value').innerText = '500,00';
-                paymentLink = "https://mpago.la/2FWZR8w";  // Outro link único
-            }
-
-            // Atualiza o botão de pagamento com o link específico
-            document.getElementById('pay-button').setAttribute('onclick', `window.open('${paymentLink}', '_blank')`);
-        }
-
-        // Function to close modal
-        function closeModal() {
-            document.getElementById('modal').style.display = 'none';
-        }
-
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            if (event.target == document.getElementById('modal')) {
-                document.getElementById('modal').style.display = 'none';
-            }
-        }
-    </script>
 
     <link rel="stylesheet" href="css/normalize.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -97,6 +36,21 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
     <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    <script>
+
+        // Função para fechar o modal
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        // Fecha o modal ao clicar fora dele
+        window.onclick = function(event) {
+            if (event.target === document.getElementById('modal')) {
+                document.getElementById('modal').style.display = 'none';
+            }
+        }
+    </script>
+
 </head>
 <body id="top">
 <!--[if lt IE 8]>
@@ -155,95 +109,23 @@
         </div>
     </div>
 
-    <div class="gift-container">
-        <div class="gift-item">
-            <img src="img/hospedagem.png" alt="Cota Hospedagem">
-            <h3>Cota 1 Hospedagem</h3>
-            <p>R$ 1.500,00</p>
-            <button class="btn" onclick="openModal('hospedagem')">Ver detalhes</button>
+    <!-- Seção de presentes -->
+    <section class="container">
+        <div class="gift-container">
+            <!-- Produtos serão carregados aqui dinamicamente -->
         </div>
-        <div class="gift-item">
-            <img src="img/passagem.png" alt="Cota Passagem">
-            <h3>Cota 2 Passagem</h3>
-            <p>R$ 500,00</p>
-            <button class="btn" onclick="openModal('passagem')">Ver detalhes</button>
+        <!-- Modal -->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <img id="modal-image" src="" alt="">
+                <h3 id="modal-title"></h3>
+                <p id="modal-price"></p>
+                <p>Seu presente: R$ <span id="modal-present-value"></span></p>
+                <button id="pay-button" class="btn-fill">Faça o pagamento</button>
+            </div>
         </div>
-        <div class="gift-item">
-            <img src="img/hospedagem.png" alt="Cota Hospedagem">
-            <h3>Cota 1 Hospedagem</h3>
-            <p>R$ 1.500,00</p>
-            <button class="btn" onclick="openModal('hospedagem')">Ver detalhes</button>
-        </div>
-        <div class="gift-item">
-            <img src="img/passagem.png" alt="Cota Passagem">
-            <h3>Cota 2 Passagem</h3>
-            <p>R$ 500,00</p>
-            <button class="btn" onclick="openModal('passagem')">Ver detalhes</button>
-        </div>
-        <div class="gift-item">
-            <img src="img/hospedagem.png" alt="Cota Hospedagem">
-            <h3>Cota 1 Hospedagem</h3>
-            <p>R$ 1.500,00</p>
-            <button class="btn" onclick="openModal('hospedagem')">Ver detalhes</button>
-        </div>
-        <div class="gift-item">
-            <img src="img/passagem.png" alt="Cota Passagem">
-            <h3>Cota 2 Passagem</h3>
-            <p>R$ 500,00</p>
-            <button class="btn" onclick="openModal('passagem')">Ver detalhes</button>
-        </div>
-        <div class="gift-item">
-            <img src="img/hospedagem.png" alt="Cota Hospedagem">
-            <h3>Cota 1 Hospedagem</h3>
-            <p>R$ 1.500,00</p>
-            <button class="btn" onclick="openModal('hospedagem')">Ver detalhes</button>
-        </div>
-        <div class="gift-item">
-            <img src="img/passagem.png" alt="Cota Passagem">
-            <h3>Cota 2 Passagem</h3>
-            <p>R$ 500,00</p>
-            <button class="btn" onclick="openModal('passagem')">Ver detalhes</button>
-        </div>
-        <div class="gift-item">
-            <img src="img/hospedagem.png" alt="Cota Hospedagem">
-            <h3>Cota 1 Hospedagem</h3>
-            <p>R$ 1.500,00</p>
-            <button class="btn" onclick="openModal('hospedagem')">Ver detalhes</button>
-        </div>
-        <div class="gift-item">
-            <img src="img/passagem.png" alt="Cota Passagem">
-            <h3>Cota 2 Passagem</h3>
-            <p>R$ 500,00</p>
-            <button class="btn" onclick="openModal('passagem')">Ver detalhes</button>
-        </div>
-        <div class="gift-item">
-            <img src="img/hospedagem.png" alt="Cota Hospedagem">
-            <h3>Cota 1 Hospedagem</h3>
-            <p>R$ 1.500,00</p>
-            <button class="btn" onclick="openModal('hospedagem')">Ver detalhes</button>
-        </div>
-        <div class="gift-item">
-            <img src="img/passagem.png" alt="Cota Passagem">
-            <h3>Cota 2 Passagem</h3>
-            <p>R$ 500,00</p>
-            <button class="btn" onclick="openModal('passagem')">Ver detalhes</button>
-        </div>
-        <!-- Repita o mesmo para outros presentes -->
-    </div>
-
-    <!-- Modal -->
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <img id="modal-image" src="" alt="">
-            <h3 id="modal-title"></h3>
-            <p id="modal-price"></p>
-            <p>Seu presente: R$ <span id="modal-present-value"></span></p>
-            <button id="pay-button" class="btn-fill">Faça o pagamento</button>
-        </div>
-    </div>
-
-    <!--    <div class="down-arrow floating-arrow"><a href="#invitation"><i class="fa fa-angle-down"></i></a></div>-->
+    </section>
 </section>
 
 

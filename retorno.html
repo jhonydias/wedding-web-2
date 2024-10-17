@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="description" content="Gostaríamos de convidá-lo para o nosso grande dia.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <meta property="og:title" content="Casamento Jhony e Joene">
+    <meta property="og:description" content="Gostaríamos de convidá-lo para o nosso grande dia.">
+    <meta property="og:type" content="website">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="manifest.json">
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+    <title>Pagamento Confirmado</title>
+    <style>
+        /* Estilos gerais */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f9;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+        }
+
+        /* Caixa principal */
+        .confirmation-container {
+            text-align: center;
+            background-color: #fff;
+            padding: 40px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        /* Cabeçalho e mensagem de confirmação */
+        h1 {
+            font-size: 2.5rem;
+            color: #28a745;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            color: #555;
+        }
+
+        /* Estilos adicionais */
+        .message {
+            font-size: 1rem;
+            color: #888;
+            margin-top: 20px;
+        }
+
+        /* Animação do ícone de check */
+        .icon-check {
+            font-size: 4rem;
+            color: #28a745;
+            margin-bottom: 20px;
+            animation: pop-in 0.5s ease-in-out;
+        }
+
+        @keyframes pop-in {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .confirmation-container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            .icon-check {
+                font-size: 3rem;
+            }
+        }
+    </style>
+    <script>
+        // Função que será chamada quando a página for carregada
+        function markProductAsPurchased() {
+            // Captura o ID do produto da URL (se o ID for passado como parâmetro de URL)
+            var urlParams = window.location.search.substring(1).split('&');
+            var productId = null;
+
+            for (var i = 0; i < urlParams.length; i++) {
+                var param = urlParams[i].split('=');
+                if (param[0] === 'id') {
+                    productId = param[1];
+                    break;
+                }
+            }
+            var apiURL = 'https://script.google.com/macros/s/AKfycbxQAzd2XJENil4sAAU4rqWWMKqqQsCAFzIrlDKSczRkvlaXKhQPd88WVmwoThhk1u66/exec';
+            if (productId) {
+                // Faz a request POST para marcar o produto como indisponível
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', apiURL, true);
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        document.getElementById('message').innerText = 'Presente recebido com sucesso!';
+                    } else if (xhr.readyState === 4) {
+                        console.error('Erro ao marcar produto como comprado:', xhr.status);
+                    }
+                };
+
+                xhr.send('id=' + encodeURIComponent(productId));
+            } else {
+                document.getElementById('message').innerText = 'Nenhum produto identificado.';
+            }
+        }
+
+        // Chama a função ao carregar a página
+        window.onload = markProductAsPurchased;
+    </script>
+</head>
+<body>
+<div class="confirmation-container">
+    <!-- Ícone de check verde para confirmar a compra -->
+    <div class="icon-check">✔</div>
+    <h1>Obrigado pelo seu presente!</h1>
+    <p id="message">Processando...</p>
+<!--    <p class="message">Você receberá um e-mail com mais informações.</p>-->
+</div>
+</body>
+</html>
+
+

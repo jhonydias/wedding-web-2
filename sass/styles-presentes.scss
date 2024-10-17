@@ -958,14 +958,17 @@ body.modal-open {
 @media (max-width: 768px) {
   .container-wedding img {
     max-width: 100%;
+    margin-bottom: 20px; /* Garantir espaçamento abaixo da imagem */
+
   }
   .row-wedding {
     flex-direction: column;
     text-align: center;
+    align-items: center; /* Centralizar o conteúdo no mobile */
   }
 
   .separador-vertical .line {
-    display: none;
+    display: none; /* Esconder a linha separadora no mobile */
   }
 
   .col-text {
@@ -1140,6 +1143,14 @@ body.modal-open {
   border-radius: 10px;
 }
 
+.gift-item .price {
+  font-size: 1.4rem; /* Aumenta o tamanho da fonte */
+  font-weight: bold; /* Torna o preço em negrito */
+  color: #444; /* Muda a cor para algo com mais contraste */
+  margin-top: 10px; /* Adiciona um espaçamento acima do preço */
+}
+
+
 .modal {
   display: none; /* Escondido por padrão */
   position: fixed;
@@ -1222,6 +1233,21 @@ body.modal-open {
     width: 100%;
     margin-bottom: 12%;
   }
+}
+
+.product-unavailable {
+  opacity: 0.5; /* Tornar o produto "cinzado" */
+  pointer-events: none; /* Desabilitar cliques */
+}
+
+.product-unavailable .unavailable {
+  color: red;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.product-unavailable img {
+  filter: grayscale(100%); /* Aplicar efeito de imagem em tons de cinza */
 }
 
 
