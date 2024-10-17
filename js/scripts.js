@@ -4,6 +4,7 @@ $(document).ready(function () {
         fetchProducts();
         atualizarContagemRegressiva();
     }
+
     window.onload = init;
 
     /***************** Contador de Dias ******************/
@@ -30,7 +31,9 @@ $(document).ready(function () {
 
     function fetchProducts() {
         fetch(apiURL)
-            .then(function(response){ return response.json(); })
+            .then(function (response) {
+                return response.json();
+            })
             .then(function (data) {
                 var container = document.querySelector('.gift-container');
                 container.innerHTML = '';  // Limpar o conteúdo antes de adicionar novos produtos
@@ -50,7 +53,7 @@ $(document).ready(function () {
                     container.innerHTML += produtoHTML;
                 });
             })
-            .catch(function(error) {
+            .catch(function (error) {
                 console.error('Erro ao carregar os produtos:', error);
             });
     }
@@ -249,10 +252,10 @@ $(document).ready(function () {
 
             // You can also choose to set an end time
             // If an end time is set, this will take precedence over duration
-            end: new Date('2024-12-07T10:00:00'),
+            end: new Date('2024-12-07T18:00:00'),
 
             // Event Address
-            address: 'ITC Fortune Park Hotel, Kolkata',
+            address: 'Santuário de Nossa Senhora do Perpétuo Socorro, Av. Arthur Bernardes, 459 - Telégrafo, Belém - PA, 66115-000, Brasil',
 
             // Event Description
             description: "Esperamos por você, qualquer dúvida, entre em contato com a gente!"
@@ -267,27 +270,23 @@ $(document).ready(function () {
         e.preventDefault();
         var data = $(this).serialize();
 
-        $('#alert-wrapper').html(alert_markup('info', '<strong>Just a sec!</strong> We are saving your details.'));
+        $('#alert-wrapper').html(alert_markup('info', '<strong>Só um minuto!</strong> Enviando...'));
 
-        if (MD5($('#invite_code').val()) !== 'b0e53b10c1f55ede516b240036b88f40'
-            && MD5($('#invite_code').val()) !== '2ac7f43695eb0479d5846bb38eec59cc') {
-            $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> Your invite code is incorrect.'));
-        } else {
-            $.post('https://script.google.com/macros/s/AKfycbyo0rEknln8LedEP3bkONsfOh776IR5lFidLhJFQ6jdvRiH4dKvHZmtoIybvnxpxYr2cA/exec', data)
-                .done(function (data) {
-                    console.log(data);
-                    if (data.result === "error") {
-                        $('#alert-wrapper').html(alert_markup('danger', data.message));
-                    } else {
-                        $('#alert-wrapper').html('');
-                        $('#rsvp-modal').modal('show');
-                    }
-                })
-                .fail(function (data) {
-                    console.log(data);
-                    $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> There is some issue with the server. '));
-                });
-        }
+        $.post(apiURL, data)
+            .done(function (data) {
+                console.log(data);
+                if (data.result === "error") {
+                    $('#alert-wrapper').html(alert_markup('danger', data.message));
+                } else {
+                    $('#alert-wrapper').html('');
+                    $('#rsvp-modal').modal('show');
+                }
+            })
+            .fail(function (data) {
+                console.log(data);
+                $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> There is some issue with the server. '));
+            });
+
     });
 
 });
@@ -435,12 +434,10 @@ var MD5 = function (string) {
 
             if (c < 128) {
                 utftext += String.fromCharCode(c);
-            }
-            else if ((c > 127) && (c < 2048)) {
+            } else if ((c > 127) && (c < 2048)) {
                 utftext += String.fromCharCode((c >> 6) | 192);
                 utftext += String.fromCharCode((c & 63) | 128);
-            }
-            else {
+            } else {
                 utftext += String.fromCharCode((c >> 12) | 224);
                 utftext += String.fromCharCode(((c >> 6) & 63) | 128);
                 utftext += String.fromCharCode((c & 63) | 128);

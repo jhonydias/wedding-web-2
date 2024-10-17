@@ -27,7 +27,7 @@
                 '&sprop=&sprop=name:'
             ].join(''));
             return '<a class="icon-google" target="_blank" href="' +
-                href + '">Google Calendar</a>';
+                href + '">Google Agenda</a>';
         },
 
         yahoo: function(event) {
@@ -60,7 +60,7 @@
             ].join(''));
 
             return '<a class="icon-yahoo" target="_blank" href="' +
-                href + '">Yahoo! Calendar</a>';
+                href + '">Yahoo! Agenda</a>';
         },
 
         ics: function(event, eClass, calendarName) {
@@ -82,7 +82,7 @@
                     'END:VCALENDAR'].join('\n'));
 
             return '<a class="' + eClass + '" target="_blank" href="' +
-                href + '">' + calendarName + ' Calendar</a>';
+                href + '">' + calendarName + ' Agenda</a>';
         },
 
         ical: function(event) {
@@ -97,8 +97,8 @@
     var generateCalendars = function(event) {
         return {
             google: calendarGenerators.google(event),
-            yahoo: calendarGenerators.yahoo(event),
-            ical: calendarGenerators.ical(event),
+            // yahoo: calendarGenerators.yahoo(event),
+            // ical: calendarGenerators.ical(event),
             outlook: calendarGenerators.outlook(event)
         };
     };
@@ -129,7 +129,7 @@
         var result = document.createElement('div');
 
         result.innerHTML = '<label id="add-to-calendar-label" for="checkbox-for-' +
-            calendarId + '" class="btn btn-fill btn-small"><i class="fa fa-calendar"></i>&nbsp;&nbsp; Add to Calendar</label>';
+            calendarId + '" class="btn btn-fill btn-small"><i class="fa fa-calendar"></i>&nbsp;&nbsp; Adicionar ao calendário</label>';
         result.innerHTML += '<input name="add-to-calendar-checkbox" class="add-to-calendar-checkbox" id="checkbox-for-' + calendarId + '" type="checkbox">';
 
         Object.keys(calendars).forEach(function(services) {
