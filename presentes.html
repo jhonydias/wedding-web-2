@@ -37,16 +37,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
     <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     <script>
+        // load css files from CDN if local node_modules fail
+        function loadCssFromCDN(css) {
+            // create new link tag
+            const link = document.createElement('link');
+            if (css === 'animate.css') {
+                link.href = 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css';
+            } else if (css === 'font-awesome.css') {
+                link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css';
+            }
+            link.rel = 'stylesheet';
 
-        // Função para fechar o modal
-        function closeModal() {
-            document.getElementById('modal').style.display = 'none';
+            // add link tag to head section
+            document.getElementsByTagName('head')[0].appendChild(link);
         }
 
-        // Fecha o modal ao clicar fora dele
-        window.onclick = function(event) {
-            if (event.target === document.getElementById('modal')) {
-                document.getElementById('modal').style.display = 'none';
+        // load js files from CDN if local node_modules fail
+        function loadJsFromCDN(js) {
+            if (js === 'waypoints.js') {
+                document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"><\/script>');
+            } else if (js === 'jquery.js') {
+                document.write('<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"><\/script>');
             }
         }
     </script>
@@ -113,17 +124,6 @@
     <section class="container">
         <div class="gift-container">
             <!-- Produtos serão carregados aqui dinamicamente -->
-        </div>
-        <!-- Modal -->
-        <div id="modal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal()">&times;</span>
-                <img id="modal-image" src="" alt="">
-                <h3 id="modal-title"></h3>
-                <p id="modal-price"></p>
-                <p>Seu presente: R$ <span id="modal-present-value"></span></p>
-                <button id="pay-button" class="btn-fill">Faça o pagamento</button>
-            </div>
         </div>
     </section>
 </section>
