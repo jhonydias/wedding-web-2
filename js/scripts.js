@@ -27,6 +27,7 @@ $(document).ready(function () {
         setTimeout(atualizarContagemRegressiva, 1000);
     }
 
+    /***************** Buscar Produtos ******************/
     var apiURL = 'https://script.google.com/macros/s/AKfycbywl_f3owoVg1px3PKgr9HpKyng-nz1uC7gLtVNdInSUQLupPeFDYYD-71orylpxnln/exec';
 
     function fetchProducts() {
@@ -40,7 +41,7 @@ $(document).ready(function () {
                 data.forEach(function (produto) {
                     // Definir o estado do produto com base no status
                     var produtoStatusClass = produto.status === 'OFF' ? 'product-unavailable' : '';
-                    var buttonContent = produto.status === 'OFF' ? '<span class="unavailable">COMPRADO</span>' : '<a href="' + produto.link + '" target="_blank" class="btn">Faça o pagamento</a>';
+                    var buttonContent = produto.status === 'OFF' ? '<span class="unavailable">COMPRADO</span>' : '<a href="' + produto.link + '" target="_blank" class="btn">Comprar agora</a>';
 
                     var produtoHTML =
                         '<div class="gift-item ' + produtoStatusClass + '">' +
@@ -266,13 +267,14 @@ $(document).ready(function () {
 
 
     /********************** RSVP **********************/
+    var rsvpApiUrl = 'https://script.google.com/macros/s/AKfycbw3oZxRF-yQm66297eIrz5pvMDfG7iMse-G7vRVJr8n-T37-OyfYSr8ewZrpqSbAi2f/exec';
     $('#rsvp-form').on('submit', function (e) {
         e.preventDefault();
         var data = $(this).serialize();
-
+        console.log(data);
         $('#alert-wrapper').html(alert_markup('info', '<strong>Só um minuto!</strong> Enviando...'));
 
-        $.post(apiURL, data)
+        $.post(rsvpApiUrl, data)
             .done(function (data) {
                 console.log(data);
                 if (data.result === "error") {

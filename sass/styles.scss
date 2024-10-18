@@ -1207,3 +1207,12 @@ body.modal-open {
   }
 }
 
+.container-map iframe {
+  position: relative;
+  padding-bottom: 56.25%; /* Proporção 16:9 */
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  background: #f4f4f4;
+}
+
